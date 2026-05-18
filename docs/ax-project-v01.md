@@ -40,7 +40,7 @@ L0 Mycroft
   -> 회사 전체 두뇌이자 공통 운영 기반
 
 L1 Systems
-  -> BMS / IMS / PMS / CMS / HMS
+  -> BMS / IMS / PMS / PPS / CMS / HMS
 
 L2 Agents
   -> 각 system 안의 대표 업무 역할
@@ -74,6 +74,7 @@ L1은 홈즈 업무를 큰 시스템 단위로 나눈 레이어다.
 | BMS | Brokerage Management System | 중개부문, MR.HOMES, 계약 성사 지원 |
 | IMS | Investment Management System | 투자개발, 딜 소싱, 검토, 조율, 구조화 |
 | PMS | Property Management System | 자산 운영, 입주민, 재무, 시설 |
+| PPS | Product Planning System | 상품기획, 상품 구조, 가격·계약 조건, 운영 패키지 |
 | CMS | Contents / Customer Management System | 고객 접점, 채널, 콘텐츠, 마케팅 |
 | HMS | Homes Management System | 사내 운영, 회의, 지식, 권한 |
 
@@ -89,6 +90,7 @@ L2는 각 system 내 대표 역할을 agent로 정의한 레이어다.
 - IMS의 딜 소싱 agent
 - BMS의 계약 agent
 - PMS의 재무 agent
+- PPS의 상품기획 agent
 - HMS의 회의 agent
 - CMS의 채널 관리 agent
 
@@ -165,6 +167,20 @@ PMS는 잠재 고객 문의가 접수된 이후부터 재고 확인, 계약, 입
 | 계약 관리 agent | 예약 확정 이후 계약·입주 준비·청구·수납·변경 흐름 관리 | 계약 조건 관리, 계약 문서 처리, 청구·수납 관리, 계약 변경·연장·종료 관리 |
 | 거주 경험 관리 agent | 입주 이후 요청·민원·만족도·재계약 신호 관리 | 입주민 문의, 요청·민원 조율, 생활 안내·경험 커뮤니케이션, 만족도·재계약 신호 감지 |
 | 시설 관리 agent | 시설 이슈 대응과 예방 유지보수, 운영 안정성 관리 | 시설 이슈 분류, 유지보수 조율, 작업 상태 추적, 운영 리스크 반영 |
+
+### PPS — 상품기획
+
+`Product Planning System`
+
+PPS는 홈즈가 제공하는 상품의 구조와 운영 조건을 기획하는 system이다. 고객 수요, 자산 특성, 운영 제약, 가격 조건, 계약 조건을 함께 보고 어떤 상품을 만들고 어떻게 운영할지 정의한다.
+
+구체적인 L2 agent는 상품기획 담당자 초안이 전달된 뒤 확정한다.
+
+주요 L2 agent:
+
+| Agent | 역할 | L3 후보 |
+|---|---|---|
+| 작성 예정 | 상품기획 L2 agent 초안 수신 후 반영 | 작성 예정 |
 
 ### CMS — 채널·콘텐츠
 
@@ -245,6 +261,12 @@ HMS는 사내 운영과 지식 관리를 담당한다.
 | 거주 경험 관리 agent | M | 4-6주 | 민원/요청/재계약 신호 데이터와 운영팀 처리 기준 필요 |
 | 시설 관리 agent | M | 4-6주 | 빌딩케어 SSOT와 시설 이슈 분류·긴급도 기준 필요 |
 | **PMS 소계** | L | **12-16주** | 운영 데이터 접근, 재고 SSOT, 계약 상태 정의를 먼저 고정해야 함 |
+
+#### PPS — 상품기획
+
+| L2 Agent | 난이도 | 예상 소요 | 비고 |
+|---|---|---|---|
+| 작성 예정 | TBD | TBD | 상품기획 L2 초안 수신 후 난이도와 소요 산정 |
 
 #### CMS — 채널·콘텐츠
 
