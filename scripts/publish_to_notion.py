@@ -33,6 +33,11 @@ def strip_publish_only_metadata(markdown: str) -> str:
         skipping_leading_quote = False
         cleaned.append(line)
 
+    if cleaned and re.match(r"^#\s+", cleaned[0]):
+        cleaned = cleaned[1:]
+        while cleaned and cleaned[0].strip() == "":
+            cleaned = cleaned[1:]
+
     return "\n".join(cleaned).strip() + "\n"
 
 
