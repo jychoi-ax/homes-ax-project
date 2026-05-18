@@ -8,6 +8,7 @@ AX project 문서의 편집 원본, 변경 이력, 리뷰 기록을 관리하는
 - Notion은 최종 승인본 게시판이다.
 - 모든 수정은 branch와 pull request를 통해 반영한다.
 - 최종 승인된 버전만 Notion에 게시한다.
+- 현재 저장소는 private repository이고 GitHub 플랜상 branch protection enforcement가 되지 않으므로, `main` 직접 수정 금지와 PR 기반 작업은 협업 규칙으로 운영한다.
 
 ## 구조
 

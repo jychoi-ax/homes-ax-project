@@ -5,6 +5,7 @@
 - `main`에 직접 push하지 않는다.
 - 모든 변경은 branch에서 작업한다.
 - 모든 변경은 pull request로 리뷰한다.
+- 현재 저장소는 GitHub 플랜상 private branch protection enforcement가 되지 않으므로, 위 규칙은 반드시 사람끼리 지켜야 한다.
 - Notion에서 임시 수정한 내용도 최종적으로는 GitHub 문서에 반영한다.
 - 내부용 formatter, wiki 메타데이터, gbrain 보조 표기는 GitHub 게시 문서와 Notion 게시 문서에 남기지 않는다.
 
