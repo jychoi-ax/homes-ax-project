@@ -1,0 +1,239 @@
+/* ==========================================================================
+   HOMES Design System — Colors, Type, and Semantic Tokens
+   ========================================================================== */
+
+/* Google Fonts (substitutes):
+   - Pretendard (primary Korean/Latin sans) — loaded from CDN
+   - Inter as Latin fallback
+   Flag: We have not received the canonical HOMES webfont files. Pretendard
+   is the de-facto Korean product-UI font and matches the proposal's
+   system-font fallback stack well. Request original .woff2 files from brand.
+*/
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+:root {
+  /* ---------- Brand palette ---------- */
+  --homes-gold:        #FFCF0D;   /* primary accent  — CTA, badges, highlights */
+  --homes-gold-dark:   #D7B735;   /* hover/pressed gold */
+  --homes-gold-10:     rgba(255,207,13,0.10);
+  --homes-gold-30:     rgba(255,207,13,0.30);
+  --homes-gold-50:     rgba(255,207,13,0.50);
+
+  --homes-navy:        #020425;   /* primary dark surface — header, hero, footer */
+  --homes-navy-80:     rgba(2,4,37,0.80);
+
+  --homes-brown:       #6F614F;   /* secondary text, small-caps eyebrows */
+  --homes-text:        #4F4F4F;   /* body */
+  --homes-text-dark:   #212121;   /* strong body / list items */
+
+  /* ---------- Neutrals (Tailwind-derived) ---------- */
+  --gray-50:  #F9FAFB;
+  --gray-100: #F3F4F6;
+  --gray-200: #E5E7EB;
+  --gray-300: #D1D5DC;
+  --gray-400: #99A1AF;
+  --gray-500: #6B7280;
+  --gray-600: #4B5563;
+  --gray-700: #374151;
+  --gray-800: #1F2937;
+  --gray-900: #111827;
+  --white:    #FFFFFF;
+
+  /* ---------- Semantic ---------- */
+  --success:   #00BB7F;  /* emerald-500 — check marks in feature lists */
+  --danger:    #DC2626;
+  --warning:   #F59E0B;
+  --info:      #3B82F6;
+
+  --bg-app:       var(--white);
+  --bg-muted:     var(--gray-50);
+  --bg-inverse:   var(--homes-navy);
+
+  --fg-strong:    var(--homes-navy);      /* headings on light */
+  --fg-default:   var(--homes-text-dark); /* body on light */
+  --fg-muted:     var(--homes-text);
+  --fg-subtle:    var(--homes-brown);
+  --fg-inverse:   var(--white);
+  --fg-inverse-muted: rgba(255,255,255,0.60);
+  --fg-inverse-subtle: rgba(255,255,255,0.40);
+
+  --border-default: var(--gray-200);
+  --border-strong:  var(--gray-300);
+  --border-gold:    var(--homes-gold);
+  --border-inverse: rgba(255,255,255,0.30);
+
+  /* ---------- Type ---------- */
+  --font-sans: "Pretendard Variable", "Pretendard", -apple-system, BlinkMacSystemFont,
+               "Apple SD Gothic Neo", "Segoe UI", Roboto, "Helvetica Neue", Arial,
+               "Noto Sans KR", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+               "Liberation Mono", "Courier New", monospace;
+
+  /* Scale (matches proposal tailwind scale) */
+  --text-xs:   0.75rem;   /* 12 */
+  --text-sm:   0.875rem;  /* 14 */
+  --text-base: 1rem;      /* 16 */
+  --text-lg:   1.125rem;  /* 18 */
+  --text-xl:   1.25rem;   /* 20 */
+  --text-2xl:  1.5rem;    /* 24 */
+  --text-3xl:  1.875rem;  /* 30 */
+  --text-4xl:  2.25rem;   /* 36 */
+  --text-5xl:  3rem;      /* 48 */
+  --text-6xl:  3.75rem;   /* 60 */
+
+  --leading-tight:   1.25;
+  --leading-snug:    1.375;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.625;
+
+  --tracking-tight:  -0.01em;
+  --tracking-normal: 0;
+  --tracking-wider:  0.05em;
+  --tracking-widest: 0.10em;   /* uppercase eyebrow labels */
+
+  --fw-regular:   400;
+  --fw-medium:    500;
+  --fw-semibold:  600;
+  --fw-bold:      700;
+
+  /* ---------- Spacing (4px base) ---------- */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* ---------- Radii ---------- */
+  --radius-sm:   0.25rem;
+  --radius-md:   0.5rem;
+  --radius-lg:   0.75rem;   /* rounded-xl in proposal */
+  --radius-xl:   1rem;      /* rounded-2xl — cards, tier panels */
+  --radius-full: 9999px;    /* pills, badges */
+
+  /* ---------- Shadow ---------- */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.08), 0 2px 4px -2px rgba(0,0,0,0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.10), 0 4px 6px -4px rgba(0,0,0,0.10);
+  --shadow-gold: 0 10px 15px -3px rgba(255,207,13,0.10), 0 4px 6px -4px rgba(255,207,13,0.10);
+
+  /* ---------- Motion ---------- */
+  --ease-standard: cubic-bezier(.4, 0, .2, 1);
+  --dur-fast:   150ms;
+  --dur-normal: 300ms;
+  --dur-slow:   500ms;
+
+  /* ---------- Container widths (from proposal) ---------- */
+  --container-xl:  36rem;
+  --container-2xl: 42rem;
+  --container-4xl: 56rem;
+  --container-5xl: 64rem;
+  --container-6xl: 72rem;
+}
+
+/* ==========================================================================
+   Semantic element styles — use as a base layer
+   ========================================================================== */
+
+html {
+  font-family: var(--font-sans);
+  color: var(--fg-default);
+  background: var(--bg-app);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.homes-display {
+  font-family: var(--font-sans);
+  font-size: var(--text-5xl);
+  font-weight: var(--fw-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--fg-strong);
+}
+
+.homes-h1, h1 {
+  font-size: var(--text-3xl);
+  font-weight: var(--fw-bold);
+  line-height: var(--leading-tight);
+  color: var(--fg-strong);
+}
+@media (min-width: 40rem) { .homes-h1, h1 { font-size: var(--text-5xl); } }
+
+.homes-h2, h2 {
+  font-size: var(--text-2xl);
+  font-weight: var(--fw-bold);
+  line-height: var(--leading-tight);
+  color: var(--fg-strong);
+}
+@media (min-width: 40rem) { .homes-h2, h2 { font-size: var(--text-3xl); } }
+
+.homes-h3, h3 {
+  font-size: var(--text-2xl);
+  font-weight: var(--fw-bold);
+  line-height: var(--leading-snug);
+  color: var(--fg-strong);
+}
+
+.homes-h4, h4 {
+  font-size: var(--text-lg);
+  font-weight: var(--fw-semibold);
+  line-height: var(--leading-snug);
+  color: var(--fg-strong);
+}
+
+.homes-eyebrow {
+  font-size: var(--text-sm);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--homes-gold);
+}
+
+.homes-eyebrow-muted {
+  font-size: var(--text-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--fg-subtle);
+}
+
+.homes-body {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--fg-muted);
+}
+
+.homes-body-sm {
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--fg-muted);
+}
+
+.homes-lead {
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--fg-muted);
+}
+@media (min-width: 40rem) { .homes-lead { font-size: var(--text-xl); } }
+
+.homes-price {
+  font-size: var(--text-3xl);
+  font-weight: var(--fw-bold);
+  color: var(--fg-strong);
+  letter-spacing: var(--tracking-tight);
+}
+
+.homes-caption {
+  font-size: var(--text-xs);
+  color: var(--fg-subtle);
+}
+
+code, kbd, samp, pre { font-family: var(--font-mono); font-size: 0.95em; }
