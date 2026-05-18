@@ -1,0 +1,33 @@
+name: Publish Notion
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "docs/ax-project-v01.md"
+      - "scripts/publish_to_notion.py"
+      - ".github/workflows/publish-notion.yml"
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Publish markdown to Notion
+        env:
+          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
+          NOTION_PAGE_ID: ${{ secrets.NOTION_PAGE_ID }}
+          DOC_PATH: docs/ax-project-v01.md
+        run: python scripts/publish_to_notion.py
