@@ -347,16 +347,36 @@
   .tree-stem-svg { width: 100%; height: 64px; display: block; margin-top: -2px; }
   .tree-children {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 28px;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
     width: 100%;
     margin-top: -4px;
+    position: relative;
+  }
+  .tree-children::before,
+  .tree-children::after {
+    content: "";
+    position: absolute;
+    top: -18px;
+    height: 4px;
+    border-radius: 99px;
+    pointer-events: none;
+  }
+  .tree-children::before {
+    left: 0;
+    width: calc((100% - 100px) / 6 * 4 + 60px);
+    background: var(--gold);
+  }
+  .tree-children::after {
+    right: 0;
+    width: calc((100% - 100px) / 6 * 2 + 20px);
+    background: rgba(255,255,255,0.28);
   }
   .tree-card {
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 14px;
-    padding: 28px 28px 32px;
+    border-radius: 12px;
+    padding: 24px 20px 28px;
     display: flex;
     flex-direction: column;
     gap: 14px;
@@ -369,24 +389,32 @@
     font-weight: var(--fw-semibold);
   }
   .tree-card .nm {
-    font-size: 40px;
+    font-size: 34px;
     font-weight: var(--fw-bold);
     color: var(--white);
     letter-spacing: -0.01em;
     line-height: 1;
   }
   .tree-card .dt {
-    font-size: var(--type-body);
+    font-size: 27px;
     color: rgba(255,255,255,0.72);
     line-height: 1.4;
     margin-top: 4px;
   }
   .tree-card .role {
-    font-size: var(--type-small);
+    font-size: 23px;
     color: rgba(255,255,255,0.5);
     margin-top: auto;
     padding-top: 16px;
     border-top: 1px solid rgba(255,255,255,0.15);
+  }
+  .tree-card.business {
+    background: rgba(255,207,13,0.075);
+    border-color: rgba(255,207,13,0.34);
+  }
+  .tree-card.supporting {
+    background: rgba(255,255,255,0.035);
+    border-color: rgba(255,255,255,0.18);
   }
   .tree-note {
     margin-top: 36px;
@@ -460,7 +488,7 @@
     border-left: 2px solid var(--gold);
   }
 
-  /* Slide 10 — two columns */
+  /* Two-column system pages */
   .two-col {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -481,7 +509,141 @@
     margin-bottom: 24px;
   }
 
-  /* Priorities (slide 12) ===================================================== */
+  /* Output / method / R&R pages ============================================== */
+  .big-outcome {
+    border: 2px solid var(--navy);
+    border-radius: 18px;
+    padding: 44px 52px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+    align-items: stretch;
+  }
+  .outcome-item {
+    border-top: 4px solid var(--gold);
+    padding-top: 24px;
+  }
+  .outcome-item .num {
+    color: var(--gold);
+    font-size: 56px;
+    font-weight: var(--fw-bold);
+    line-height: 1;
+  }
+  .outcome-item h3 {
+    margin: 18px 0 12px;
+    font-size: 42px;
+    color: var(--navy);
+  }
+  .outcome-item p {
+    margin: 0;
+    font-size: var(--type-body);
+    color: var(--ink-muted);
+    line-height: 1.45;
+  }
+  .arrow-result {
+    margin-top: 36px;
+    font-size: 46px;
+    font-weight: var(--fw-bold);
+    color: var(--navy);
+    letter-spacing: -0.01em;
+  }
+  .stack-diagram {
+    display: grid;
+    gap: 24px;
+    margin-top: 8px;
+  }
+  .stack-layer {
+    border: 1.5px solid var(--rule);
+    border-left: 5px solid var(--gold);
+    border-radius: 12px;
+    padding: 28px 34px;
+  }
+  .stack-layer h3 {
+    margin: 0 0 10px;
+    color: var(--navy);
+    font-size: 38px;
+  }
+  .stack-layer p {
+    margin: 0;
+    color: var(--ink-muted);
+    font-size: var(--type-body);
+    line-height: 1.45;
+  }
+  .method-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    margin-top: 12px;
+  }
+  .method-col {
+    border-top: 3px solid var(--navy);
+    padding-top: 28px;
+  }
+  .method-col h3 {
+    margin: 0 0 28px;
+    color: var(--navy);
+    font-size: 42px;
+  }
+  .method-col ul {
+    margin: 0;
+    padding-left: 32px;
+    font-size: var(--type-body);
+    line-height: 1.65;
+    color: var(--ink-muted);
+  }
+  .engine-map {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 42px;
+    margin-top: 4px;
+  }
+  .engine-path {
+    border: 1.5px solid var(--rule);
+    border-radius: 14px;
+    padding: 30px 34px;
+  }
+  .engine-path h3 {
+    margin: 0 0 18px;
+    color: var(--navy);
+    font-size: 38px;
+  }
+  .engine-path p {
+    margin: 0;
+    color: var(--ink-muted);
+    font-size: var(--type-body);
+    line-height: 1.5;
+  }
+  .rnr-line {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 10px;
+  }
+  .rnr-card {
+    border: 1.5px solid var(--rule);
+    border-radius: 14px;
+    padding: 32px 34px;
+  }
+  .rnr-card .label {
+    color: var(--gold);
+    font-size: var(--type-small);
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .rnr-card h3 {
+    margin: 18px 0 12px;
+    color: var(--navy);
+    font-size: 38px;
+  }
+  .rnr-card p {
+    margin: 0;
+    color: var(--ink-muted);
+    font-size: var(--type-body);
+    line-height: 1.45;
+  }
+
+  /* Tables / timeline ======================================================== */
   .priority-table {
     width: 100%;
     border-collapse: collapse;
@@ -530,7 +692,71 @@
     line-height: 1.45;
   }
 
-  /* Validation (slide 13) ===================================================== */
+  /* Implementation effort (slide 13) ========================================= */
+  .effort-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 48px;
+    margin-top: 12px;
+  }
+  .effort-card {
+    border-top: 2px solid var(--navy);
+    padding-top: 28px;
+  }
+  .effort-card .kicker {
+    color: var(--gold);
+    font-size: var(--type-small);
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .effort-card h3 {
+    margin: 0 0 20px;
+    font-size: 42px;
+    color: var(--navy);
+    letter-spacing: -0.01em;
+  }
+  .effort-card p {
+    margin: 0;
+    font-size: var(--type-body);
+    line-height: 1.5;
+    color: var(--ink-muted);
+  }
+  .effort-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .effort-row {
+    display: grid;
+    grid-template-columns: 160px 90px 160px 1fr;
+    gap: 24px;
+    align-items: baseline;
+    padding: 18px 0;
+    border-top: 1px solid var(--rule);
+    font-size: 27px;
+  }
+  .effort-row:last-child { border-bottom: 1px solid var(--rule); }
+  .effort-row .sys {
+    font-weight: var(--fw-bold);
+    color: var(--navy);
+  }
+  .effort-row .diff {
+    color: var(--gold);
+    font-weight: var(--fw-bold);
+  }
+  .effort-row .weeks {
+    color: var(--ink);
+    font-weight: var(--fw-semibold);
+    font-variant-numeric: tabular-nums;
+  }
+  .effort-row .note {
+    color: var(--ink-muted);
+    line-height: 1.35;
+  }
+
+  /* Validation (slide 16) ===================================================== */
   .validation { justify-content: flex-start; }
   .validation .pull-quote {
     font-size: 56px;
@@ -710,6 +936,13 @@
   "",
   "",
   "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
   ""
 ]
 </script>
@@ -748,7 +981,7 @@
 
     <div class="footer-meta">
       <span>홈즈 × AX팀</span>
-      <span class="page-num">01 / 15</span>
+      <span class="page-num">01 / 22</span>
     </div>
   </section>
 
@@ -769,7 +1002,7 @@
 
     <div class="footer-meta">
       <span>마이크로프트 구조 제안</span>
-      <span class="page-num">02 / 15</span>
+      <span class="page-num">02 / 22</span>
     </div>
   </section>
 
@@ -812,7 +1045,7 @@
 
     <div class="footer-meta">
       <span>마이크로프트 구조 제안</span>
-      <span class="page-num">03 / 15</span>
+      <span class="page-num">03 / 22</span>
     </div>
   </section>
 
@@ -853,7 +1086,7 @@
 
     <div class="footer-meta">
       <span>마이크로프트 구조 제안</span>
-      <span class="page-num">04 / 15</span>
+      <span class="page-num">04 / 22</span>
     </div>
   </section>
 
@@ -906,7 +1139,7 @@
 
     <div class="footer-meta">
       <span>마이크로프트 구조 제안</span>
-      <span class="page-num">05 / 15</span>
+      <span class="page-num">05 / 22</span>
     </div>
   </section>
 
@@ -929,7 +1162,7 @@
       <div class="layer-row">
         <span class="lvl">L1</span>
         <span class="name">시스템</span>
-        <span class="desc">부서 · 본부 급 — IMS · PMS · 사내시스템 · CMS</span>
+        <span class="desc">System 경계 — IMS · PPS · CMS · PMS · BMS · HMS</span>
       </div>
       <div class="layer-row">
         <span class="lvl">L2</span>
@@ -945,17 +1178,17 @@
 
     <div class="footer-meta">
       <span>마이크로프트 구조 제안</span>
-      <span class="page-num">06 / 15</span>
+      <span class="page-num">06 / 22</span>
     </div>
   </section>
 
   <!-- ========================================================
        SLIDE 7 — L1 systems tree (dark)
        ======================================================== -->
-  <section class="dark" data-label="07 L1 시스템 4개">
+  <section class="dark" data-label="07 L1 시스템 구조">
     <div class="header">
-      <div class="eyebrow">L1 — 시스템 4개</div>
-      <h2 class="slide-title">전체 그림</h2>
+      <div class="eyebrow">L1 — 시스템 구조</div>
+      <h2 class="slide-title">종합부동산업을 굴리는 기본 패키지</h2>
     </div>
 
     <div class="tree-wrap">
@@ -964,50 +1197,64 @@
       <svg class="tree-stem-svg" viewBox="0 0 1680 64" preserveAspectRatio="none" aria-hidden="true">
         <!-- vertical stem -->
         <line x1="840" y1="0"  x2="840" y2="32" stroke="rgba(255,207,13,0.6)" stroke-width="2"/>
-        <!-- horizontal bar across 4 children centers (children equally spaced at gap 28, 4 cols on 1680 width minus padding) -->
-        <line x1="210" y1="32" x2="1470" y2="32" stroke="rgba(255,207,13,0.6)" stroke-width="2"/>
+        <!-- horizontal bar across 6 children centers -->
+        <line x1="140" y1="32" x2="1540" y2="32" stroke="rgba(255,207,13,0.6)" stroke-width="2"/>
         <!-- drops to each child -->
-        <line x1="210"  y1="32" x2="210"  y2="64" stroke="rgba(255,207,13,0.6)" stroke-width="2"/>
-        <line x1="630"  y1="32" x2="630"  y2="64" stroke="rgba(255,207,13,0.6)" stroke-width="2"/>
-        <line x1="1050" y1="32" x2="1050" y2="64" stroke="rgba(255,207,13,0.6)" stroke-width="2"/>
-        <line x1="1470" y1="32" x2="1470" y2="64" stroke="rgba(255,207,13,0.6)" stroke-width="2"/>
+        <line x1="140"  y1="32" x2="140"  y2="64" stroke="rgba(255,207,13,0.6)" stroke-width="2"/>
+        <line x1="420"  y1="32" x2="420"  y2="64" stroke="rgba(255,207,13,0.6)" stroke-width="2"/>
+        <line x1="700"  y1="32" x2="700"  y2="64" stroke="rgba(255,207,13,0.6)" stroke-width="2"/>
+        <line x1="980"  y1="32" x2="980"  y2="64" stroke="rgba(255,207,13,0.6)" stroke-width="2"/>
+        <line x1="1260" y1="32" x2="1260" y2="64" stroke="rgba(255,207,13,0.6)" stroke-width="2"/>
+        <line x1="1540" y1="32" x2="1540" y2="64" stroke="rgba(255,207,13,0.6)" stroke-width="2"/>
       </svg>
 
       <div class="tree-children">
-        <div class="tree-card">
-          <span class="tag">L1 · 입구</span>
-          <span class="nm">IMS</span>
-          <span class="dt">투자</span>
-          <span class="role">자산 발굴 → 투자</span>
+        <div class="tree-card business">
+          <span class="tag">L1</span>
+          <span class="nm">투자</span>
+          <span class="dt">IMS</span>
+          <span class="role">소싱 · 검토 · 구조화</span>
         </div>
-        <div class="tree-card">
-          <span class="tag">L1 · 운영</span>
-          <span class="nm">PMS</span>
-          <span class="dt">자산 · 운영</span>
-          <span class="role">입주민 · 재무 · 시설</span>
+        <div class="tree-card business">
+          <span class="tag">L1</span>
+          <span class="nm">상품기획</span>
+          <span class="dt">PPS</span>
+          <span class="role">상품 구조 · 가격 · 조건</span>
         </div>
-        <div class="tree-card">
-          <span class="tag">L1 · 코어</span>
+        <div class="tree-card business">
+          <span class="tag">L1</span>
+          <span class="nm">마케팅</span>
+          <span class="dt">CMS</span>
+          <span class="role">채널 · 콘텐츠 · 성과</span>
+        </div>
+        <div class="tree-card business">
+          <span class="tag">L1</span>
+          <span class="nm">운영</span>
+          <span class="dt">PMS</span>
+          <span class="role">리드 · 재고 · 계약 · 시설</span>
+        </div>
+        <div class="tree-card supporting">
+          <span class="tag">L1</span>
+          <span class="nm">중개</span>
+          <span class="dt">BMS</span>
+          <span class="role">광고 · 접수 · 계약</span>
+        </div>
+        <div class="tree-card supporting">
+          <span class="tag">L1</span>
           <span class="nm">사내시스템</span>
-          <span class="dt">회의 · 챗봇</span>
-          <span class="role">코어 지원</span>
-        </div>
-        <div class="tree-card">
-          <span class="tag">L1 · 출구</span>
-          <span class="nm">CMS</span>
-          <span class="dt">채널 · 콘텐츠</span>
-          <span class="role">고객 접점</span>
+          <span class="dt">HMS</span>
+          <span class="role">회의 · 지식 · 권한</span>
         </div>
       </div>
     </div>
 
     <p class="tree-note">
-      양극단(끝과 끝)이 이 안에 그대로 들어있습니다 — <span class="accent">IMS (입구)</span> ↔ <span class="accent">CMS (출구)</span>.
+      <span class="accent">투자 · 상품기획 · 마케팅 · 운영</span>이 기본 순환을 만들고, <span class="accent">중개</span>와 <span class="accent">사내시스템</span>은 별도 시스템으로 둡니다.
     </p>
 
     <div class="footer-meta">
       <span>마이크로프트 구조 제안</span>
-      <span class="page-num">07 / 15</span>
+      <span class="page-num">07 / 22</span>
     </div>
   </section>
 
@@ -1055,7 +1302,7 @@
 
     <div class="footer-meta">
       <span>마이크로프트 구조 제안</span>
-      <span class="page-num">08 / 15</span>
+      <span class="page-num">08 / 22</span>
     </div>
   </section>
 
@@ -1074,79 +1321,152 @@
     <div class="agent-list">
       <div class="agent-row">
         <span class="idx">L2 · 01</span>
-        <span class="name">고객 관리 에이전트</span>
-        <span class="role">입주민 관리 담당자</span>
+        <span class="name">리드 관리 에이전트</span>
+        <span class="role">문의 접수 이후 상담 · 투어 · 계약 후보 관리</span>
       </div>
       <div class="agent-row">
         <span class="idx">L2 · 02</span>
-        <span class="name">Lead 에이전트</span>
-        <span class="role">신규 고객 대응 담당자</span>
+        <span class="name">재고 관리 에이전트</span>
+        <span class="role">추천 · 예약 · 계약 가능한 공간 후보 산출</span>
       </div>
       <div class="agent-row">
         <span class="idx">L2 · 03</span>
-        <span class="name">재무 에이전트</span>
-        <span class="role">재무 담당자</span>
+        <span class="name">계약 관리 에이전트</span>
+        <span class="role">계약 체결, 입주 준비, 청구 · 수납 흐름 관리</span>
       </div>
       <div class="agent-row">
         <span class="idx">L2 · 04</span>
-        <span class="name">시설 에이전트</span>
-        <span class="role">시설 담당자</span>
+        <span class="name">거주 경험 관리 에이전트</span>
+        <span class="role">요청 · 민원 · 만족도 · 재계약 신호 관리</span>
+      </div>
+      <div class="agent-row">
+        <span class="idx">L2 · 05</span>
+        <span class="name">시설 관리 에이전트</span>
+        <span class="role">시설 이슈 대응과 예방 유지보수 관리</span>
       </div>
     </div>
 
     <div class="footer-meta">
       <span>마이크로프트 구조 제안</span>
-      <span class="page-num">09 / 15</span>
+      <span class="page-num">09 / 22</span>
     </div>
   </section>
 
   <!-- ========================================================
-       SLIDE 10 — 사내시스템 + CMS
+       SLIDE 10 — BMS
        ======================================================== -->
-  <section data-label="10 사내시스템·CMS">
+  <section data-label="10 BMS 중개">
     <div class="header">
-      <div class="eyebrow">L1 · 코어 + 출구</div>
-      <h2 class="slide-title">사내시스템 · CMS</h2>
+      <div class="system-head">
+        <span class="badge">L1 · 중개</span>
+      </div>
+      <h2 class="slide-title">BMS — 중개</h2>
+      <p class="slide-subtitle">Brokerage Management System</p>
+    </div>
+
+    <div class="agent-list">
+      <div class="agent-row">
+        <span class="idx">L2 · 01</span>
+        <span class="name">광고 에이전트</span>
+        <span class="role">채널별 광고 운영과 성과 반영</span>
+      </div>
+      <div class="agent-row">
+        <span class="idx">L2 · 02</span>
+        <span class="name">접수 에이전트</span>
+        <span class="role">다채널 문의 접수와 배정</span>
+      </div>
+      <div class="agent-row">
+        <span class="idx">L2 · 03</span>
+        <span class="name">자료 준비 에이전트</span>
+        <span class="role">매물 · 상담 · 법률 · 규제 자료 준비</span>
+      </div>
+      <div class="agent-row">
+        <span class="idx">L2 · 04</span>
+        <span class="name">계약 에이전트</span>
+        <span class="role">계약 단계 관리와 리스크 점검</span>
+      </div>
+      <div class="agent-row">
+        <span class="idx">L2 · 05</span>
+        <span class="name">CRM · 본부 운영 에이전트</span>
+        <span class="role">고객 lifecycle, 가맹점 지원, 본부 관제</span>
+      </div>
+    </div>
+
+    <div class="footer-meta">
+      <span>마이크로프트 구조 제안</span>
+      <span class="page-num">10 / 22</span>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       SLIDE 11 — PPS + CMS
+       ======================================================== -->
+  <section data-label="11 상품기획·마케팅">
+    <div class="header">
+      <div class="eyebrow">L1 · 상품기획 + 마케팅</div>
+      <h2 class="slide-title">PPS · CMS</h2>
+      <p class="slide-subtitle">상품을 정의하고, 고객 반응을 만들어 계약 가능한 리드로 넘깁니다.</p>
     </div>
 
     <div class="two-col">
       <div class="system-col">
-        <h3>사내시스템</h3>
-        <p class="sub">L1 · 코어</p>
+        <h3>PPS — 상품기획</h3>
+        <p class="sub">Product Planning System</p>
         <div class="agent-list">
           <div class="agent-row" style="grid-template-columns: 60px 1fr;">
             <span class="idx">L2</span>
             <span>
-              <span class="name" style="display:block;">회의 에이전트</span>
-              <span class="role" style="display:block; margin-top: 6px;">내부 회의록 관리 담당자</span>
+              <span class="name" style="display:block;">상품 표준·브랜드 관리</span>
+              <span class="role" style="display:block; margin-top: 6px;">공통 기준과 프로젝트별 조정 기준 구분</span>
             </span>
           </div>
           <div class="agent-row" style="grid-template-columns: 60px 1fr;">
             <span class="idx">L2</span>
             <span>
-              <span class="name" style="display:block;">챗봇 에이전트</span>
-              <span class="role" style="display:block; margin-top: 6px;">사내 Q&amp;A — "회사의 모든 것을 아는 사람"</span>
+              <span class="name" style="display:block;">공간 구성·면적 관리</span>
+              <span class="role" style="display:block; margin-top: 6px;">조닝, 유닛 타입, 공용부, 법규 제약 검토</span>
+            </span>
+          </div>
+          <div class="agent-row" style="grid-template-columns: 60px 1fr;">
+            <span class="idx">L2</span>
+            <span>
+              <span class="name" style="display:block;">상품 전환·사업비 관리</span>
+              <span class="role" style="display:block; margin-top: 6px;">전환 범위, FF&amp;E, 마감재, 사업비 산출</span>
             </span>
           </div>
         </div>
       </div>
 
       <div class="system-col">
-        <h3>CMS</h3>
-        <p class="sub">L1 · 출구 — 채널 · 콘텐츠</p>
+        <h3>CMS — 마케팅</h3>
+        <p class="sub">Customer Acquisition System</p>
         <div class="agent-list">
           <div class="agent-row" style="grid-template-columns: 60px 1fr;">
             <span class="idx">L2</span>
             <span>
-              <span class="name" style="display:block;">채널 관리 에이전트</span>
-              <span class="role" style="display:block; margin-top: 6px;">L3 · 홈페이지 / SNS 서브</span>
+              <span class="name" style="display:block;">고객군·채널 관리</span>
+              <span class="role" style="display:block; margin-top: 6px;">고객군, 상품, 지역, 유입 경로 연결</span>
             </span>
           </div>
           <div class="agent-row" style="grid-template-columns: 60px 1fr;">
             <span class="idx">L2</span>
             <span>
-              <span class="name" style="display:block;">마케팅 에이전트</span>
-              <span class="role" style="display:block; margin-top: 6px;">L3 · 컨텐츠 생성 / 배포 / 성과 분석 서브</span>
+              <span class="name" style="display:block;">광고·콘텐츠 운영</span>
+              <span class="role" style="display:block; margin-top: 6px;">캠페인, 콘텐츠 주제, 메시지, 예산 제안</span>
+            </span>
+          </div>
+          <div class="agent-row" style="grid-template-columns: 60px 1fr;">
+            <span class="idx">L2</span>
+            <span>
+              <span class="name" style="display:block;">반응·리드 전환</span>
+              <span class="role" style="display:block; margin-top: 6px;">문의·관심 신호를 유효 리드로 전환</span>
+            </span>
+          </div>
+          <div class="agent-row" style="grid-template-columns: 60px 1fr;">
+            <span class="idx">L2</span>
+            <span>
+              <span class="name" style="display:block;">성과 측정</span>
+              <span class="role" style="display:block; margin-top: 6px;">획득 비용과 전환 효율 측정</span>
             </span>
           </div>
         </div>
@@ -1155,200 +1475,391 @@
 
     <div class="footer-meta">
       <span>마이크로프트 구조 제안</span>
-      <span class="page-num">10 / 15</span>
+      <span class="page-num">11 / 22</span>
     </div>
   </section>
 
   <!-- ========================================================
-       SLIDE 11 — Already embedded
+       SLIDE 12 — Output one sentence
        ======================================================== -->
-  <section data-label="11 전무님 제안은 이미 내장">
+  <section data-label="12 우리가 얻는 것">
     <div class="header">
-      <div class="eyebrow">전무님 5/13 제안</div>
-      <h2 class="slide-title">이미 이 구조 안에 내장돼 있습니다.</h2>
+      <div class="eyebrow">산출물</div>
+      <h2 class="slide-title">AX로 우리가 얻는 것</h2>
+      <p class="slide-subtitle">전사 정책 지식 기반과 C레벨 의사결정 대시보드.</p>
     </div>
 
-    <table class="ds-table embedded-grid">
-      <thead>
-        <tr>
-          <th class="col-narrow">전무님 제안</th>
-          <th>이 구조에서의 위치</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="who">전사 숙제 시스템</td>
-          <td>기존 직원에게서 "어떻게 일하는지" 수집 = <b class="strong-navy">설계 입력 재료</b></td>
-        </tr>
-        <tr>
-          <td class="who">일본 1차 테스트베드</td>
-          <td>기존 관성 최소 지점부터 새 조직 적용</td>
-        </tr>
-        <tr>
-          <td class="who">정책 정의</td>
-          <td>L2 / L3 각 에이전트 경계 = <b class="strong-navy">직무기술서</b></td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="big-outcome">
+      <div class="outcome-item">
+        <div class="num">01</div>
+        <h3>전사 정책·룰의 단일 지식 기반</h3>
+        <p>회사의 판단 기준을 레이어 제로에 모아 모든 agent가 같은 기준을 보게 합니다.</p>
+      </div>
+      <div class="outcome-item">
+        <div class="num">02</div>
+        <h3>C레벨 의사결정 대시보드</h3>
+        <p>agent 결과를 경영진이 한눈에 보고, IR·강의에서 쓸 한 문장으로 연결합니다.</p>
+      </div>
+    </div>
 
-    <p class="lead" style="margin-top: 56px;">
-      별도 트랙이 아니라 <b class="strong-navy">프레임에 내장</b>. 더 강력합니다.
+    <div class="arrow-result">비용 누수 차단 → 자동화 → 수익성 극대화</div>
+
+    <div class="footer-meta">
+      <span>마이크로프트 구조 제안</span>
+      <span class="page-num">12 / 22</span>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       SLIDE 13 — Layer zero ontology
+       ======================================================== -->
+  <section data-label="13 레이어 제로">
+    <div class="header">
+      <div class="eyebrow">산출물 ①</div>
+      <h2 class="slide-title">레이어 제로</h2>
+      <p class="slide-subtitle">전사 정책·룰을 담은 단 하나의 지식 기반.</p>
+    </div>
+
+    <div class="stack-diagram">
+      <div class="stack-layer">
+        <h3>도메인별 지식 기반</h3>
+        <p>투자, 상품기획, 마케팅, 운영, 중개, 사내시스템의 판단 기준을 한 구조로 정리합니다.</p>
+      </div>
+      <div class="stack-layer">
+        <h3>헌법 · 룰북 · 컨텍스트</h3>
+        <p>절대 틀리면 안 되는 기준, 표준 규칙, 참고 맥락을 분리해 AI가 답할 수 있는 바닥을 만듭니다.</p>
+      </div>
+      <div class="stack-layer">
+        <h3>첫 2개 agent와 함께 완성</h3>
+        <p>처음부터 추상 지식베이스를 만드는 것이 아니라, 실제 agent 구현 과정에서 필요한 기준을 채웁니다.</p>
+      </div>
+    </div>
+
+    <div class="footer-meta">
+      <span>마이크로프트 구조 제안</span>
+      <span class="page-num">13 / 22</span>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       SLIDE 14 — Dashboard
+       ======================================================== -->
+  <section data-label="14 C레벨 대시보드">
+    <div class="header">
+      <div class="eyebrow">산출물 ②</div>
+      <h2 class="slide-title">C레벨 의사결정 계기판</h2>
+      <p class="slide-subtitle">대표의 IR 한 문장이 항상 나오는 원천.</p>
+    </div>
+
+    <div class="stack-diagram">
+      <div class="stack-layer">
+        <h3>대시보드</h3>
+        <p>agent와 sub-agent 결과를 경영진이 볼 수 있는 상태값과 한 문장으로 집약합니다.</p>
+      </div>
+      <div class="stack-layer">
+        <h3>Agents · Sub-agents</h3>
+        <p>팀과 담당자 역할에 해당하는 실행 결과가 dashboard의 입력이 됩니다.</p>
+      </div>
+      <div class="stack-layer">
+        <h3>레이어 제로</h3>
+        <p>빈 계기판이 아니라, 회사의 정책·판단 기준 위에서 나온 결과를 보여줍니다.</p>
+      </div>
+    </div>
+
+    <div class="footer-meta">
+      <span>마이크로프트 구조 제안</span>
+      <span class="page-num">14 / 22</span>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       SLIDE 15 — People vs AI
+       ======================================================== -->
+  <section data-label="15 사람 vs AI">
+    <div class="header">
+      <div class="eyebrow">어떻게 ①</div>
+      <h2 class="slide-title">사람은 룰을 주고, AI가 프레임워크를 짓습니다.</h2>
+    </div>
+
+    <div class="method-grid">
+      <div class="method-col">
+        <h3>사람이 하는 일</h3>
+        <ul>
+          <li>현업 룰·정책 답변</li>
+          <li>카톡·문서·운영 자료 제공</li>
+          <li>코어밸류와 폐기 기준 판단</li>
+          <li>검증 과정의 최종 확인</li>
+        </ul>
+      </div>
+      <div class="method-col">
+        <h3>AI가 하는 일</h3>
+        <ul>
+          <li>QA 시트 설계와 수집 자동화</li>
+          <li>공백 탐지, 재질문, 룰북화</li>
+          <li>agent와 sub-agent 구축</li>
+          <li>검증·튜닝·프레임워크화</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-meta">
+      <span>마이크로프트 구조 제안</span>
+      <span class="page-num">15 / 22</span>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       SLIDE 16 — Data engine
+       ======================================================== -->
+  <section data-label="16 데이터 수집 엔진">
+    <div class="header">
+      <div class="eyebrow">어떻게 ②</div>
+      <h2 class="slide-title">단순 설문이 아닙니다.</h2>
+      <p class="slide-subtitle">적응형 QA, 동조편향 재질문, 문서·대화 데이터 수집을 함께 씁니다.</p>
+    </div>
+
+    <div class="engine-map">
+      <div class="engine-path">
+        <h3>암묵지: 사람 머릿속</h3>
+        <p>1차 오픈 질문으로 시작하고, 별도 AI가 공백과 모순을 찾아 2차·3차 질문으로 다시 묻습니다.</p>
+      </div>
+      <div class="engine-path">
+        <h3>형식지: 카톡·문서</h3>
+        <p>비정형 자료를 수집해 룰로 정형화하고, 사람이 말한 기준과 실제 데이터의 불일치를 확인합니다.</p>
+      </div>
+    </div>
+
+    <p class="lead" style="margin-top: 42px;">
+      결과는 <b class="strong-navy">헌법 / 룰북 / 컨텍스트</b> 3분류로 정리되어 레이어 제로에 쌓입니다.
     </p>
 
     <div class="footer-meta">
       <span>마이크로프트 구조 제안</span>
-      <span class="page-num">11 / 15</span>
+      <span class="page-num">16 / 22</span>
     </div>
   </section>
 
   <!-- ========================================================
-       SLIDE 12 — Priorities timeline
+       SLIDE 17 — Schedule hamburger
        ======================================================== -->
-  <section data-label="12 우선순위">
+  <section data-label="17 일정 햄버거">
     <div class="header">
-      <div class="eyebrow">실행 우선순위</div>
-      <h2 class="slide-title">며칠 단위와 6개월, 둘 다.</h2>
-      <p class="slide-subtitle">대표님 "며칠 단위" + 전무님 "6개월 안에 일부라도" — 둘 다 충족.</p>
+      <div class="eyebrow">일정 ①</div>
+      <h2 class="slide-title">양 끝은 불확실, 가운데는 확실합니다.</h2>
+      <p class="slide-subtitle">사람 의존 구간과 개발 구간을 나눠 봐야 일정이 정직해집니다.</p>
+    </div>
+
+    <div class="stack-diagram">
+      <div class="stack-layer">
+        <h3>1단계 — QA 수집 + 크롤링</h3>
+        <p>현업 협조 속도에 종속됩니다. 길어질 수 있습니다.</p>
+      </div>
+      <div class="stack-layer">
+        <h3>2단계 — 에이전트 개발</h3>
+        <p>Luke 통제 영역입니다. 비교적 빠르고 예측 가능합니다.</p>
+      </div>
+      <div class="stack-layer">
+        <h3>3단계 — 검증 + 미세 튜닝</h3>
+        <p>검증은 빠르지만 회사에 맞추는 튜닝은 오래 걸립니다.</p>
+      </div>
+    </div>
+
+    <div class="footer-meta">
+      <span>마이크로프트 구조 제안</span>
+      <span class="page-num">17 / 22</span>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       SLIDE 18 — Why no fixed date
+       ======================================================== -->
+  <section data-label="18 왜 날짜를 안 박나">
+    <div class="header">
+      <div class="eyebrow">일정 ②</div>
+      <h2 class="slide-title">정확한 날짜를 못 박는 척하지 않습니다.</h2>
+      <p class="slide-subtitle">대신 통제 가능 영역, 변수, 단축 조건을 관리합니다.</p>
+    </div>
+
+    <div class="method-grid">
+      <div class="method-col">
+        <h3>일정을 앞당기는 방법</h3>
+        <ul>
+          <li>현업 자료를 주 단위로 제공</li>
+          <li>자료 요청에 적극 참여</li>
+          <li>코어밸류와 폐기 판단을 빠르게 결정</li>
+        </ul>
+      </div>
+      <div class="method-col">
+        <h3>느려지는 이유</h3>
+        <ul>
+          <li>현업 답변 지연</li>
+          <li>정책 판단 지연</li>
+          <li>검증 후 튜닝 기준 미확정</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-meta">
+      <span>마이크로프트 구조 제안</span>
+      <span class="page-num">18 / 22</span>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       SLIDE 19 — Framework gate
+       ======================================================== -->
+  <section data-label="19 프레임워크화">
+    <div class="header">
+      <div class="eyebrow">일정 ③</div>
+      <h2 class="slide-title">첫 사이클은 느리고, 그 뒤는 빨라집니다.</h2>
+      <p class="slide-subtitle">처음 만드는 것은 agent 하나가 아니라 재사용 가능한 프레임워크입니다.</p>
+    </div>
+
+    <div class="stack-diagram">
+      <div class="stack-layer">
+        <h3>첫 2개 agent</h3>
+        <p>QA 수집, 룰북화, 구현, 검증, 튜닝의 전체 사이클을 처음으로 완주합니다.</p>
+      </div>
+      <div class="stack-layer">
+        <h3>프레임워크화</h3>
+        <p>검증·튜닝 과정을 재사용 가능한 틀로 만들고, 다음 도메인에 적용합니다.</p>
+      </div>
+      <div class="stack-layer">
+        <h3>3번째 이후</h3>
+        <p>L1 agent들을 하나씩 꽂아 넣으며 반복 속도를 높입니다.</p>
+      </div>
+    </div>
+
+    <div class="footer-meta">
+      <span>마이크로프트 구조 제안</span>
+      <span class="page-num">19 / 22</span>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       SLIDE 20 — R&R reporting line
+       ======================================================== -->
+  <section data-label="20 R&R 보고라인">
+    <div class="header">
+      <div class="eyebrow">R&amp;R ①</div>
+      <h2 class="slide-title">권한은 한 라인으로, 도메인은 별도 트랙으로.</h2>
+    </div>
+
+    <div class="rnr-line">
+      <div class="rnr-card">
+        <span class="label">권한·정책</span>
+        <h3>하진수 전무</h3>
+        <p>대표 위임 권한과 정책 결정 라인. 현업 협조 속도를 관리합니다.</p>
+      </div>
+      <div class="rnr-card">
+        <span class="label">총괄 실행</span>
+        <h3>Luke</h3>
+        <p>설계, 개발, 배포, 인프라, 중앙 AI 구축과 QA 기획을 총괄합니다.</p>
+      </div>
+      <div class="rnr-card">
+        <span class="label">실무 트랙</span>
+        <h3>AX팀</h3>
+        <p>최진열, 서민석, 양혜원이 현업 수집과 도메인별 agent 정의를 담당합니다.</p>
+      </div>
+    </div>
+
+    <p class="lead" style="margin-top: 44px;">AMS와 이충일 본부장 도메인은 별도 트랙으로 유지합니다.</p>
+
+    <div class="footer-meta">
+      <span>마이크로프트 구조 제안</span>
+      <span class="page-num">20 / 22</span>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       SLIDE 21 — R&R definitions
+       ======================================================== -->
+  <section data-label="21 R&R 라인별 정의">
+    <div class="header">
+      <div class="eyebrow">R&amp;R ②</div>
+      <h2 class="slide-title">누가 무엇을 하는지.</h2>
     </div>
 
     <table class="priority-table">
       <thead>
         <tr>
-          <th>시점</th>
-          <th>착수 에이전트</th>
+          <th>라인</th>
+          <th>담당</th>
+          <th>역할</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td class="t-when">D + 7<small>1주차</small></td>
-          <td><span class="pending">(우선순위 1순위)</span> — 5/19에서 함께 확정</td>
+          <td class="t-when">총괄 실행</td>
+          <td>Luke</td>
+          <td>설계·개발·배포·인프라 / 중앙 AI 구축 / QA 기획</td>
         </tr>
         <tr>
-          <td class="t-when">D + 14<small>2주차</small></td>
-          <td><span class="pending">(2순위)</span> — 5/19에서 함께 확정</td>
+          <td class="t-when">실무</td>
+          <td>최진열</td>
+          <td>현업 소통 → 레이어 제로 룰북·컨텍스트 수집</td>
         </tr>
         <tr>
-          <td class="t-when">Month 1 ~ 2<small>1–2개월</small></td>
-          <td>IMS 검토 · 소싱 에이전트</td>
+          <td class="t-when">실무</td>
+          <td>서민석</td>
+          <td>운영·BMS·상품기획·마케팅 agent 상세 구조화</td>
         </tr>
         <tr>
-          <td class="t-when">Month 2 ~ 3<small>2–3개월</small></td>
-          <td>PMS · CMS 확장</td>
+          <td class="t-when">실무</td>
+          <td>양혜원</td>
+          <td>CMS 도메인, 홈페이지·채널부터 마케팅으로 확장</td>
         </tr>
         <tr>
-          <td class="t-when">6 개월<small>전체 작동</small></td>
-          <td>19개 에이전트 <b class="strong-navy">작동 가능 수준</b> (완벽 효율화 X)</td>
+          <td class="t-when">별도</td>
+          <td>AMS / 이충일 본부장</td>
+          <td>대표 직접 협업 병행, 도메인 공급과 밸런스 확인</td>
         </tr>
       </tbody>
     </table>
 
-    <p class="priority-note">
-      19개 전부 동시 X. 우선순위는 <b class="strong-navy">5/19에서 3자 함께</b> 결정.
-    </p>
-
     <div class="footer-meta">
       <span>마이크로프트 구조 제안</span>
-      <span class="page-num">12 / 15</span>
+      <span class="page-num">21 / 22</span>
     </div>
   </section>
 
   <!-- ========================================================
-       SLIDE 13 — External validation (dark)
+       SLIDE 22 — Decisions
        ======================================================== -->
-  <section class="dark validation" data-label="13 외부 검증">
+  <section data-label="22 결정 필요 3건">
     <div class="header">
-      <div class="eyebrow">External validation</div>
-      <h2 class="slide-title">이 구조는 산업 표준과 일치합니다.</h2>
-      <p class="slide-subtitle">Luke 단독 아님.</p>
-    </div>
-
-    <div class="pull-quote">
-      "기존 <span class="accent">'두 번째 뇌'</span>가 실패한 이유 = 유지보수가<br/>
-      <span class="accent">사람 책임</span>이었기 때문. LLM이 그 부담을 가져가면<br/>
-      <span class="accent">처음으로 지속 가능</span>."
-    </div>
-
-    <div class="citation-row">
-      <div class="citation">
-        <div class="src">레퍼런스 1</div>
-        <div class="nm">Andrej Karpathy</div>
-        <div class="meta">OpenAI 공동창업자 · "LLM Wiki" 3계층 패턴 (2026-04 공개)</div>
-      </div>
-      <div class="citation">
-        <div class="src">레퍼런스 2</div>
-        <div class="nm">Steph Ango</div>
-        <div class="meta">Obsidian CEO · 공식 에이전트 스킬 5건 (MIT · 31.2k ★)</div>
-      </div>
-    </div>
-
-    <div class="resolves">
-      전무님 <b class="accent">"6개월 뒤 못 쓸 우려"</b> — 바로 이 패턴이 해소하는 지점입니다.
-    </div>
-
-    <div class="footer-meta">
-      <span>마이크로프트 구조 제안</span>
-      <span class="page-num">13 / 15</span>
-    </div>
-  </section>
-
-  <!-- ========================================================
-       SLIDE 14 — 3 decisions for 5/19
-       ======================================================== -->
-  <section data-label="14 5/19 결정 3가지">
-    <div class="header">
-      <div class="eyebrow">5/19에서 함께</div>
-      <h2 class="slide-title">결정할 3가지</h2>
+      <div class="eyebrow">5/19 결정</div>
+      <h2 class="slide-title">리더십이 오늘 결정해야 할 3건</h2>
     </div>
 
     <div class="decisions">
       <div class="decision-card">
         <span class="num">01</span>
-        <h3>우선순위</h3>
-        <p class="desc">19개 중 어느 에이전트부터 — 며칠 단위 착수 1·2순위.</p>
-        <div class="options">선택 단위 — 5/19 3자 합의</div>
+        <h3>첫 2개 agent</h3>
+        <p class="desc">어느 도메인부터 시작할지. 사업 우선순위에 대한 경영 판단입니다.</p>
+        <div class="options">도메인 · 순서 확정</div>
       </div>
       <div class="decision-card">
         <span class="num">02</span>
-        <h3>PMS 명칭</h3>
-        <p class="desc">빌딩케어 PMS와의 혼동 방지 — 재명명 여부 결정.</p>
-        <div class="options">유지 / 재명명 — 5/19 3자 합의</div>
+        <h3>BMS 범위</h3>
+        <p class="desc">브로커리지를 어느 범위까지 AX 구조에 포함할지 정합니다.</p>
+        <div class="options">포함 범위 · 착수 순서</div>
       </div>
       <div class="decision-card">
         <span class="num">03</span>
-        <h3>설계 권한 · R&amp;R</h3>
-        <p class="desc">가상 조직도의 최종 결정 라인.</p>
-        <div class="options">대표 / Luke 설계 + 대표 승인 / 3자</div>
+        <h3>권한 위임</h3>
+        <p class="desc">현업을 주 단위로 움직이게 할 권한 범위를 명확히 합니다.</p>
+        <div class="options">하전무 권한 · 현업 협조 라인</div>
       </div>
     </div>
 
     <p class="decisions-note">
-      <b class="strong-navy">구조는 합의됐습니다.</b> 실행 방식만 함께 정하면 됩니다.
+      이 세 가지가 정해져야 일정의 양 끝, 즉 현업 수집과 검증·튜닝이 움직입니다.
     </p>
 
     <div class="footer-meta">
       <span>마이크로프트 구조 제안</span>
-      <span class="page-num">14 / 15</span>
-    </div>
-  </section>
-
-  <!-- ========================================================
-       SLIDE 15 — Closing
-       ======================================================== -->
-  <section class="dark closing" data-label="15 마무리">
-    <div>
-      <div class="eyebrow" style="margin-bottom: 40px;">마무리</div>
-      <h2 class="big">같은 방향.<br/><span class="accent">같은 구조</span>.</h2>
-      <p class="restate">"새로 설계하되, 기존을 재료로."</p>
-    </div>
-
-    <div class="sig">
-      <span>5/15 AX팀 종일 정리 — Luke · 최진열 · 서민석 · 양혜원</span>
-      <span>대표님 · 전무님 최종 합의 → 즉시 실행 착수</span>
-    </div>
-
-    <div class="footer-meta">
-      <span>마이크로프트 구조 제안</span>
-      <span class="page-num">15 / 15</span>
+      <span class="page-num">22 / 22</span>
     </div>
   </section>
 
