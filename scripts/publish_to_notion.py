@@ -78,7 +78,7 @@ def require_env(name: str) -> str:
 def main() -> int:
     api_key = require_env("NOTION_API_KEY")
     page_id = normalize_page_id(require_env("NOTION_PAGE_ID"))
-    doc_path = Path(os.getenv("DOC_PATH", "docs/ax-project-v01.md"))
+    doc_path = Path(os.getenv("DOC_PATH", "docs/ax-whitepaper.md"))
 
     if not doc_path.exists():
         raise FileNotFoundError(f"Document not found: {doc_path}")
