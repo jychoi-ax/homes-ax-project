@@ -18,7 +18,13 @@ AX project 문서의 편집 원본, 변경 이력, 리뷰 기록을 관리하는
 ├── CONTRIBUTING.md
 ├── NOTION_SETUP.md
 ├── docs/
-│   └── ax-project-v01.md
+│   ├── ax-whitepaper.md       # 전사 백서 (L0)
+│   └── domains/               # 도메인별 심층 기획 (L1)
+│       ├── investment-development.md
+│       ├── product-planning.md
+│       ├── marketing.md
+│       ├── operations.md
+│       └── brokerage.md
 ├── scripts/
 │   └── publish_to_notion.py
 └── .github/

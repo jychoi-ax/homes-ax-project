@@ -1,12 +1,12 @@
 # Notion 자동 배포 설정
 
-이 저장소는 `main` 브랜치에 문서가 merge되면 `docs/ax-project-v01.md`를 지정한 Notion 페이지 본문으로 자동 반영할 수 있다.
+이 저장소는 `main` 브랜치에 문서가 merge되면 `docs/ax-whitepaper.md`를 지정한 Notion 페이지 본문으로 자동 반영할 수 있다.
 
 ## 동작 방식
 
 1. GitHub `main`에 push 또는 merge
 2. GitHub Actions `Publish Notion` 실행
-3. `docs/ax-project-v01.md` 내용을 읽음
+3. `docs/ax-whitepaper.md` 내용을 읽음
 4. Notion markdown API로 대상 페이지 본문 전체 교체
 
 ## 먼저 준비할 것
@@ -58,7 +58,7 @@ https://www.notion.so/teamhomes/AX-project-v-01-0515-3612cb7f15c980019843cd364ff
 
 아래 파일이 `main`에 반영되면 자동 실행된다.
 
-- `docs/ax-project-v01.md`
+- `docs/ax-whitepaper.md`
 - `scripts/publish_to_notion.py`
 - `.github/workflows/publish-notion.yml`
 
