@@ -1,3 +1,10 @@
 __pycache__/
 *.pyc
 .DS_Store
+
+# 로컬 작업 (commit 보류)
+docs/2026-05-20-pillar-priority.md
+docs/2026-05-20-pillar-scoring-template.md
+docs/projects/
+slides/
+.claude/
