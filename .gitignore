@@ -1,3 +1,15 @@
 __pycache__/
 *.pyc
 .DS_Store
+
+# collaborator 가 있는 private repo — 공유 대상은 ax-whitepaper.md + domain docs 만.
+# 아래는 로컬·내부용 (untracked):
+docs/2026-05-20-pillar-priority.md
+docs/2026-05-20-pillar-scoring-template.md
+docs/2026-05-22-ceo-ax100-outline.md
+docs/2026-05-25-ceo-ax100-handoff.md
+docs/2026-05-25-ceo-ax100-whitepaper.md
+docs/2026-05-25-operations-demo-task-spec.md
+docs/projects/
+slides/
+.claude/
