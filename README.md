@@ -9,6 +9,7 @@ AX project 문서의 편집 원본, 변경 이력, 리뷰 기록을 관리하는
 - 모든 수정은 branch와 pull request를 통해 반영한다.
 - 최종 승인된 버전만 Notion에 게시한다.
 - 현재 저장소는 private repository이고 GitHub 플랜상 branch protection enforcement가 되지 않으므로, `main` 직접 수정 금지와 PR 기반 작업은 협업 규칙으로 운영한다.
+- `docs/`와 `slides/`를 함께 관리하되, 백서 원본과 발표 자료 원본은 분리한다.
 
 ## 구조
 
@@ -25,6 +26,15 @@ AX project 문서의 편집 원본, 변경 이력, 리뷰 기록을 관리하는
 │       ├── marketing.md
 │       ├── operations.md
 │       └── brokerage.md
+├── slides/
+│   ├── README.md
+│   └── 2026-05-19-mycroft-structure/
+│       ├── deck.html
+│       ├── deck-print.html
+│       ├── deck-stage.js
+│       ├── homes-tokens.css
+│       └── assets/
+│           └── homes_logo.webp
 ├── scripts/
 │   └── publish_to_notion.py
 └── .github/
